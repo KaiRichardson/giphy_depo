@@ -4,19 +4,41 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Trivia Game</title>
+    <title>Gif Depo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/reset.css">
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Montserrat" rel="stylesheet">
 </head>
 
 <body>
     <header id="header">
-        <h1 id="name">Trivia Time!</h1>
+        <h1 id="name">Gif Depo</h1>
     </header>
 
-    <div id="main_body">
+    <div id="main_body" class="row">
+        <div id="left_body" class="col-8">
+            <div id="buttonRow" class="row">
+
+            </div>
+            <div id="gifRow" class="row">
+
+            </div>
+        </div>
+        <div id="right_body" class="col-4">
+            <div class="row">
+                <form action="/action_page.php">
+                    <label for="gifInput">Add Gif Button</label>
+                    <hr>
+                    <input type="text" placeholder="cats..." id="gifInput">
+                    <br>
+                    <input type="submit" value="Add" id="addBtn">
+                </form>
+            </div>
+            <div id="favorites" class="row">
+                Favorite Gifs 
+                <hr>
+            </div>
+        </div>
     </div>
 
     <footer id="footer">
@@ -25,9 +47,7 @@
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="./assets/javascript/app.js"></script>
 </body>
 
