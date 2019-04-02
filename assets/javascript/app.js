@@ -3,6 +3,7 @@ var faveGif = [];
 var currentBtn = "";
 var moreGif = false;
 var gifCount = 10;
+var offset = 0;
 
 function renderButtons() {
         $("#buttonRow").empty();
@@ -48,7 +49,7 @@ function displayGifInfo() {
     
     var gif = currentBtn;
 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=1VROgf6YVudOX8A67lhS4EheWllnytNT";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=1VROgf6YVudOX8A67lhS4EheWllnytNT&offset=" + offset;
 
     $.ajax({
         url: queryURL,
@@ -56,27 +57,42 @@ function displayGifInfo() {
     }).then(function (response) {        
         var results = response.data;
 
+        console.log(response);
+        
+
         for (var i = 0; i < 10; i++) {
             var gifDiv = $("<div>");
-            
-            var p = $("<p>").text("Rating: " + results[i].rating);
-            
+                        
             var gifImage = $("<img>");
             gifImage.attr("src", results[i].images.fixed_height_still.url);
             gifImage.attr("data-still", results[i].images.fixed_height_still.url);
             gifImage.attr("data-animate", results[i].images.fixed_height.url);
             gifImage.attr("data-state", "still");
-            gifImage.attr("class", "gif");
+            gifImage.addClass("gif");
             
-            var gifDiv = $("<div>");
+            var gifBtnDiv = $("<div>");
+
+            var p = $("<p>").text("Rating: " + results[i].rating);
             
-            var download = $("<button>");
-            download.addClass("download smlBtn");
-            download.text("download");    
+            var downloadBtn = $("<button>");
+            var downloadImage = $("<img>");
+            downloadImage.attr("src", "./assets/images/download.png");
+            downloadImage.addClass("smlImg");
+            downloadBtn.addClass("download smlBtn");
+            downloadBtn.append(downloadImage);
+            gifBtnDiv.append(downloadBtn);
             
-            gifDiv.append(gifImage);
+            var favoriteBtn = $("<button>");
+            var favoriteImage = $("<img>");
+            favoriteImage.attr("src", "./assets/images/check.png");
+            favoriteImage.addClass("smlImg");
+            favoriteBtn.addClass("favorite smlBtn");
+            favoriteBtn.append(favoriteImage);
+            gifBtnDiv.append(favoriteBtn);
+            
             gifDiv.append(p);
-            gifDiv.append(download);
+            gifDiv.append(gifImage);
+            gifDiv.append(gifBtnDiv);
 
             $("#gifRow").append(gifDiv);
         }
@@ -91,6 +107,7 @@ function displayGifInfo() {
 };
 
 function printMoreGif() {
+    offset += 10;
     moreGif = true;
     displayGifInfo();
 }
