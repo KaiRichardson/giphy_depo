@@ -107,7 +107,7 @@ body {
   line-height: 2;
 }
 
-#addBtn {
+.btn {
   padding: 10px;
   margin: 10px;
   background-color: brown;
@@ -118,38 +118,42 @@ body {
   box-shadow: 2px 2px 4px #5f5f5f;
   border-radius: 5px;
   font-size: 13px;
+  outline: none;
 }
 
-#addBtn:hover {
+.btn:hover {
   cursor: pointer;
   outline: none;
 }
 
-#addBtn:active {
+.btn:active {
   box-shadow: none;
   outline: 0;
 }
 
-.gifBtn {
-  padding: 10px;
-  margin: 10px;
+.smlBtn {
+  padding: 5px;
+  margin: 5px;
   background-color: brown;
   color: beige;
-  letter-spacing: 5px;
   text-align: center;
   border: none;
   box-shadow: 2px 2px 4px #5f5f5f;
   border-radius: 5px;
-  font-size: 13px;
+  font-size: 6px;
+  outline: none;
 }
 
-.gifBtn:hover {
+.smlBtn:hover {
   cursor: pointer;
+  outline: none;
 }
 
-.gifBtn:active {
+.smlBtn:active {
   box-shadow: none;
+  outline: 0;
 }
+
 
 .gif {
   border-radius: 5px;
