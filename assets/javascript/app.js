@@ -62,7 +62,8 @@ function displayGifInfo() {
 
         for (var i = 0; i < 10; i++) {
             var gifDiv = $("<div>");
-                        
+            
+            // creatting the gifs
             var gifImage = $("<img>");
             gifImage.attr("src", results[i].images.fixed_height_still.url);
             gifImage.attr("data-still", results[i].images.fixed_height_still.url);
@@ -72,8 +73,10 @@ function displayGifInfo() {
             
             var gifBtnDiv = $("<div>");
 
+            //creating the rating 
             var p = $("<p>").text("Rating: " + results[i].rating);
             
+            //creating the download button
             var downloadBtn = $("<button>");
             var downloadImage = $("<img>");
             downloadImage.attr("src", "./assets/images/download.png");
@@ -85,6 +88,7 @@ function displayGifInfo() {
 
             gifBtnDiv.append("<br>");
             
+            //creating the favorite button
             var favoriteBtn = $("<button>");
             var favoriteImage = $("<img>");
             favoriteImage.attr("src", "./assets/images/check.png");
@@ -93,13 +97,14 @@ function displayGifInfo() {
             favoriteBtn.append(favoriteImage);
             gifBtnDiv.append(favoriteBtn);
             
+            //append it all the to dom
             gifDiv.append(p);
             gifDiv.append(gifImage);
             gifDiv.append(gifBtnDiv);
-
             $("#gifRow").append(gifDiv);
         }
 
+        //add more gifs button
         var more = $("<button>");
         more.addClass("more_gif btn");
         more.text("Load More");
@@ -109,12 +114,14 @@ function displayGifInfo() {
     moreGif = false;
 };
 
+//funct to add more gifs
 function printMoreGif() {
     offset += 10;
     moreGif = true;
     displayGifInfo();
 }
 
+// funct to stop/play gifs
 function stillAnimate() {
     var state = $(this).attr("data-state");
 
@@ -130,9 +137,10 @@ function stillAnimate() {
     }
 };
 
+//if clicked, do:
 $(document).on("click", "#moreRow", printMoreGif);
 $(document).on("click", ".gifBtn", displayGifInfo);
 $(document).on("click", ".gif", stillAnimate);
 
+// on start up make butons
 renderButtons();
-
