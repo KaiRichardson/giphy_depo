@@ -77,16 +77,19 @@ function displayGifInfo() {
             var downloadBtn = $("<button>");
             var downloadImage = $("<img>");
             downloadImage.attr("src", "./assets/images/download.png");
+            downloadImage.attr("download", results[i].images.fixed_height.url);
             downloadImage.addClass("smlImg");
-            downloadBtn.addClass("download smlBtn");
+            downloadBtn.addClass("download smlBtn topBtn");
             downloadBtn.append(downloadImage);
             gifBtnDiv.append(downloadBtn);
+
+            gifBtnDiv.append("<br>");
             
             var favoriteBtn = $("<button>");
             var favoriteImage = $("<img>");
             favoriteImage.attr("src", "./assets/images/check.png");
             favoriteImage.addClass("smlImg");
-            favoriteBtn.addClass("favorite smlBtn");
+            favoriteBtn.addClass("favorite smlBtn btmBtn");
             favoriteBtn.append(favoriteImage);
             gifBtnDiv.append(favoriteBtn);
             
